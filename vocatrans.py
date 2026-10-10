@@ -77,9 +77,18 @@ def convert(data):
                     # post-split phoneme renaming
                     for phoneme_in, phoneme_out in phonemes_stage_2.items():
                         phonemes = [p.replace(phoneme_in, phoneme_out) for p in phonemes]
-                    
-                    note["phoneme"] = " ".join(phonemes)
-                    #print(note["phoneme"])
+
+                    # in some cases there are duplicate phonemes beside each other
+                    # such as an r-coloured vowel beside an r, for an example
+                    # this cleans out duplicates by comparing phonemes to the one before it
+                    # and refusing to add it to the string if it's the same one
+                    phoneme_input = " ".join(phonemes)
+                    phoneme_raw = phoneme_input[0]
+                    for x in range(1,len(phoneme_input)):
+                        if phoneme_input[x] != phoneme_input[x-1]: # checks if phoneme is different than the previous
+                            phoneme_raw += phoneme_input[x]
+                    note["phoneme"] = phoneme_raw
+                    # print(note["phoneme"]) # if you want to print out each individual phoneme I guess
 
     return json.dumps(data, indent=4)
 
