@@ -31,7 +31,7 @@ menu = [
     ttk.Entry(root, textvariable=file_location),
     tk.Label(root, text=bad_file),
     ttk.Button(root, text="Translate!", command=translate),
-    tk.Label(root, text="Version 0.1", height=10, pady=10)
+    tk.Label(root, text="Version 0.2", height=10, pady=10)
 ]
 
 for widget in menu:
