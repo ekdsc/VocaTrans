@@ -12,6 +12,8 @@ For running the Python code directly, no additional pip libraries are needed.
 
 To use the interactive GUI: `python3 vocagui.py`
 
-To use as a command-line tool: `python3 vocatrans.py <input_file>` where `<input_file>` is the directory and filename of the input VPR file.
+To use as a command-line tool: `python3 vocatrans.py -f <input_file>` where `<input_file>` is the directory and filename of the input VPR file.
 
 The resulting output file is the input filename (in the same directory), but `.vpr` is replaced with `.jp.vpr`.
+
+Converting Japanese phonemes to English ones is also possible. On the command line you can specify `-e`, and there is a checkbox on the command line.
